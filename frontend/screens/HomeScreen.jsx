@@ -1,12 +1,15 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Button } from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
 const HomeScreen = ({ navigation }) => {
-  navigation.setOptions({
-    headerTitle: '',
-    headerStyle: { backgroundColor: '#0077b6' },
-  });
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+          headerTitle: '',
+          
+          headerStyle: { backgroundColor: '#0077b6' },
+        });
+      }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -19,6 +22,7 @@ const HomeScreen = ({ navigation }) => {
             </TouchableOpacity>
             
         </View>
+        
     </View>
   );
 };

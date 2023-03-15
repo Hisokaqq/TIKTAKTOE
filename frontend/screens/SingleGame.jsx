@@ -5,17 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 
 const TicTacToeGame = ({navigation}) => {
-    navigation.setOptions({
-        headerTitle: '',
-        headerTintColor: '#fff',
-        backgroundColor: '#0077b6',
-
-        headerStyle: {
-            backgroundColor: '#0077b6',
-          elevation: 0, // remove shadow on Android
-          shadowOpacity: 0, // remove shadow on iOS
-        },
-      });
+    
       
       
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -103,6 +93,19 @@ const TicTacToeGame = ({navigation}) => {
         </View>
       </View>
       <Text style={styles.status}>{renderStatus()}</Text>
+            {gameOver &&
+            <TouchableOpacity style={{position: "absolute", top: 40, borderRadius:20, padding:10, backgroundColor:"#377ea5"}}>
+                <Text style={{fontSize: 24,
+                    fontWeight: 'bold',
+                    color: '#fff',}} onPress={()=>{
+                    setBoard(Array(9).fill(null))
+                    setWinner(null)
+                    setPlayer("X")
+                    setGameOver(false)
+                }}>Play again</Text>
+            </TouchableOpacity>
+
+            }
     </SafeAreaView>
   );
 };

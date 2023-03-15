@@ -14,13 +14,17 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="SingleGame">
         <Stack.Screen name="Home" component={HomeScreen} 
         options={{
           headerShown:false
         }}
         />
-        <Stack.Screen name="SingleGame" component={SingleGame}/>
+        <Stack.Screen name="SingleGame" component={SingleGame}
+        
+         options={{
+          headerShown:false
+        }}/>
         
       </Stack.Navigator>
     </NavigationContainer>
