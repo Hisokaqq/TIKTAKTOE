@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 
 const TicTacToeGame = ({navigation}) => {
-    
-      
-      
   const [board, setBoard] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
@@ -75,6 +72,22 @@ const TicTacToeGame = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+        {gameOver &&
+            <TouchableOpacity  style={{ position:"absolute", top:50, borderRadius:20, padding:10}}>
+                <Text style={{fontSize: 24,
+                    fontWeight: 'bold',
+                    color: '#fff',
+                    flex:1
+                }} 
+                onPress={()=>{
+                    setBoard(Array(9).fill(null))
+                    setWinner(null)
+                    setPlayer("X")
+                    setGameOver(false)
+                }}>Play again</Text>
+                
+            </TouchableOpacity>
+            }
       <View style={styles.board}>
         <View style={styles.row}>
           {renderSquare(0)}
@@ -93,19 +106,7 @@ const TicTacToeGame = ({navigation}) => {
         </View>
       </View>
       <Text style={styles.status}>{renderStatus()}</Text>
-            {gameOver &&
-            <TouchableOpacity style={{position: "absolute", top: 40, borderRadius:20, padding:10, backgroundColor:"#377ea5"}}>
-                <Text style={{fontSize: 24,
-                    fontWeight: 'bold',
-                    color: '#fff',}} onPress={()=>{
-                    setBoard(Array(9).fill(null))
-                    setWinner(null)
-                    setPlayer("X")
-                    setGameOver(false)
-                }}>Play again</Text>
-            </TouchableOpacity>
-
-            }
+            
     </SafeAreaView>
   );
 };
