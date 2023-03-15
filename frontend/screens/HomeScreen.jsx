@@ -6,21 +6,16 @@ const HomeScreen = ({ navigation }) => {
   navigation.setOptions({
     headerTitle: '',
     headerStyle: { backgroundColor: '#0077b6' },
-    headerLeft: () => (
-      <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-        <Ionicons name="person-circle-outline" size={28} color="white" style={{ marginLeft: 16 }} />
-      </TouchableOpacity>
-    ),
   });
 
   return (
     <View style={styles.container}>
         <View style={styles.selector}>
-            <TouchableOpacity style={styles.selects}>
-                <Text style={{color:"#fff", fontSize: 20}}>Single player mode</Text>
+            <TouchableOpacity style={styles.selects} >
+                <Text style={{color:"#fff", fontSize: 20}}>Play against a Bot</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.selects}>
-                <Text style={{color:"#fff", fontSize: 20}}>Multiplayer mode</Text>
+            <TouchableOpacity style={styles.selects} onPress={() => navigation.navigate('SingleGame')}>
+                <Text style={{color:"#fff", fontSize: 20}}>Play one on one</Text>
             </TouchableOpacity>
             
         </View>

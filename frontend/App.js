@@ -4,24 +4,24 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import Profile from './screens/Profile';
+import SingleGame from './screens/SingleGame';
+import { useState } from 'react';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [score, setScore] = useState(0);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            headerTransparent: true,
-            headerShown: false,
-            presentation: "modal"
-            
-          }}
+        <Stack.Screen name="Home" component={HomeScreen} 
+        options={{
+          headerShown:false
+        }}
         />
+        <Stack.Screen name="SingleGame" component={SingleGame}/>
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
